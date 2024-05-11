@@ -154,9 +154,9 @@ void callback(char* topic, byte* message, unsigned int length) {
       Serial.println("blink white");
       send_message_mqtt("white","blink");
     }
-    else if(messageTemp.indexOf("50")!= -1){
-        int idx = messageTemp.indexOf("50");
-        String dim = messageTemp.substring(idx, idx+1);
+    else if(messageTemp.indexOf("dim")!= -1){       //thay doi do sang
+        int idx = messageTemp.indexOf(":");
+        String dim = messageTemp.substring(idx);
         Serial.println("dim:50");
         analogWrite(WARM_WHITE, dim.toInt());
     }
